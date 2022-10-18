@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google</title>
-    <link rel="icon" href="{{asset('asset/images/favicon.jpg')}} ">
+    <link rel="icon" href="{{asset('asset/images/favicon.png')}} ">
     <link rel="stylesheet" href="{{asset('asset/style.css')}} ">
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
-{{--        <script defer src=" {{asset('asset/main.js')}}"></script>--}}
 </head>
 <body>
 <!-- Header -->
@@ -43,10 +42,13 @@
     <div class="content-wrapper">
         <img class="logo-img" src=" {{asset('asset/images/logo.png')}}" alt="Google Logo Image">
         <div class="search-bar">
-            <a href="">
-                <i class="fas fa-search"></i>
-            </a>
-            <input id="search-input" class="search-input" type="text">
+            <form action="{{ route('search_name') }}" method="get" class="search-form">
+                @csrf
+                <button type="submit" name="search" class="search-btn" >
+                    <i class="fas fa-search" ></i>
+                </button>
+                <input id="search-input" class="search-input" type="text" name="search">
+            </form>
             <svg class="goxjub" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24px">
                 <path fill="#4285f4"
                       d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path>
@@ -105,5 +107,6 @@
         </ul>
     </div>
 </footer>
+
 </body>
 </html>
