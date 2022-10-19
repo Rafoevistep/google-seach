@@ -15,10 +15,10 @@
     <nav class="navbar">
         <ul>
             <li>
-                <a class="link" href="">Gmail</a>
+                <a class="link" href="https://mail.google.com">{{__('msg.gmail')}}</a>
             </li>
             <li>
-                <a class="link" href="">Images</a>
+                <a class="link" href="https://www.google.com/imghp?hl=en&ogbl">{{__('msg.images')}}</a>
             </li>
             <li>
                 <div class="circle-shadow svg-app">
@@ -30,7 +30,7 @@
             </li>
             <li>
                 <div class="circle-shadow">
-                    <a class="user-icon" href=""><span>J</span></a>
+                    <a class="user-icon" href="https://accounts.google.com/"><span>J</span></a>
                 </div>
             </li>
         </ul>
@@ -61,13 +61,13 @@
             <img  src=" {{asset('asset/images/photo.svg')}} " style="margin: 10px" width="24px" alt="">
         </div>
         <div class="search-btns">
-            <button class="google-search-btn">Google Search</button>
-            <button class="lucky-search-btn">I'm Feeling Lucky</button>
+            <button class="google-search-btn">{{__('msg.google_search')}}</button>
+            <button class="lucky-search-btn">{{__('msg.felling')}}</button>
         </div>
         <div class="language">
-            <p>Google Offered in:
-                <a href="">հայերեն</a>
-                <a href="">русский</a>
+            <p>{{__('msg.service')}}
+                <a href="/hy">հայերեն</a>
+                <a href="/ru">русский</a>
             </p>
         </div>
     </div>
@@ -77,32 +77,32 @@
 <!-- Footer -->
 <footer>
     <div class="footer-content upper-footer">
-        <p>Armenia</p>
+        <p>{{__('msg.Armenia')}}</p>
     </div>
     <div class="footer-content lower-footer">
         <ul class="lower-left-footer">
             <li>
-                <a href="">About</a>
+                <a href="https://about.google/?utm_source=google-AM&utm_medium=referral&utm_campaign=hp-footer&fg=1">{{__('msg.about')}}</a>
             </li>
             <li>
-                <a href="">Advertising</a>
+                <a href="https://ads.google.com/intl/en/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1">{{__('msg.advertising')}}</a>
             </li>
             <li>
-                <a href="">Business</a>
+                <a href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1#?modal_active=none">{{__('msg.business')}}</a>
             </li>
             <li>
-                <a href="">How Search Works</a>
+                <a href="https://www.google.com/search/howsearchworks/?fg=1">{{__('msg.works')}}</a>
             </li>
         </ul>
         <ul class="lower-right-footer">
             <li>
-                <a href="">Privacy</a>
+                <a href="https://policies.google.com/privacy?hl=en-AM&fg=1">{{__('msg.privacy')}}</a>
             </li>
             <li>
-                <a href="">Terms</a>
+                <a href="https://policies.google.com/terms?hl=en-AM&fg=1">{{__('msg.terms')}}</a>
             </li>
             <li>
-                <a href="">Settings</a>
+                <a href="">{{__('msg.settings')}}</a>
             </li>
         </ul>
     </div>
