@@ -24,6 +24,7 @@ body {
 
 .search-btn{
     border: none;
+    margin-bottom: 30px;
 }
 
 .search-form{
@@ -118,7 +119,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 100px;
 }
 
 .logo-img {
@@ -157,6 +157,7 @@ header {
     margin-right: 15px;
     font-size: 16px;
     border: none;
+    margin-top: 25px;
 }
 
 .search-bar input:focus {
@@ -167,6 +168,9 @@ header {
     margin-top: 20px;
 }
 
+input#search-input {
+    width: 89%;
+}
 .search-btns button {
     height: 40px;
     font-size: 14px;
@@ -324,4 +328,21 @@ footer {
     .lower-left-footer {
         flex-wrap: wrap;
     }
+}
+
+ul#result-list {
+    margin-top: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 110px;
+}
+
+ul#result-list > li{
+    padding: 10px;
+}
+
+#result-list > li > a{
+    padding-left: 10px;
 }

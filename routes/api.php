@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('search', [App\Http\Controllers\Api_v1\SearchController::class, 'search_google'])->name('search_name');
+

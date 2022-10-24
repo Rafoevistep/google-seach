@@ -8,6 +8,7 @@
     <link rel="icon" href="{{asset('asset/images/favicon.png')}} ">
     <link rel="stylesheet" href="{{asset('asset/style.css')}} ">
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <!-- Header -->
@@ -44,10 +45,12 @@
         <div class="search-bar">
             <form action="{{ route('search_name') }}" method="get" class="search-form">
                 @csrf
-                <button type="submit" name="search" class="search-btn" >
-                    <i class="fas fa-search" ></i>
+                <button type="submit" name="search" class="search-btn" onclick="search()">
+                    <i class="fas fa-search"></i>
                 </button>
-                <input id="search-input" class="search-input" type="text" name="search">
+                {{--                oninput="handleOnChange(this.value)"--}}
+                <input id="search-input" class="search-input" type="search" name="search"
+                       oninput="handleOnChange(this.value)" autocomplete="off" required min="2">
             </form>
             <svg class="goxjub" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24px">
                 <path fill="#4285f4"
@@ -58,8 +61,9 @@
                 <path fill="#ea4335"
                       d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path>
             </svg>
-            <img  src=" {{asset('asset/images/photo.svg')}} " style="margin: 10px" width="24px" alt="">
+            <img src=" {{asset('asset/images/photo.svg')}} " style="margin: 10px" width="24px" alt="">
         </div>
+        <ul id="result-list"></ul>
         <div class="search-btns">
             <button class="google-search-btn">{{__('msg.google_search')}}</button>
             <button class="lucky-search-btn">{{__('msg.felling')}}</button>
@@ -72,7 +76,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Footer -->
 <footer>
@@ -107,6 +110,6 @@
         </ul>
     </div>
 </footer>
-
 </body>
+<script src="{{asset('asset/index.js')}}"></script>
 </html>
