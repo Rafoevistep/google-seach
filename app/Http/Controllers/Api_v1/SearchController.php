@@ -12,7 +12,7 @@ class SearchController extends Controller
     public function search_google(Request $request){
         $name = $request->search;
 
-        $client = new GoogleSearch("03259611cd7bf7683223d8059056e881efcea5acb5f1371fda499c0e71b7d4b5");
+        $client = new GoogleSearch("309d8c8f44e424a99b1a6320b4bec5bb8d0401779d1a64137f73275eeba48128");
         $query = ["q" => $name,"location"=>"Armenia,Yerevan"];
         $response = $client->get_json($query);
         $result =  $response->organic_results;
