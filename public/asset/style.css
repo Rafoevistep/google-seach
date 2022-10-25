@@ -107,17 +107,16 @@ header {
 
 /* Content */
 .content-section {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-height: 80vh;
 }
 
 .content-wrapper {
     width: 100%;
+    height: 30rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 50vh;
+    transform: translateY(-50%);
     align-items: center;
 }
 

@@ -8,7 +8,7 @@
     <link rel="icon" href="{{asset('asset/images/favicon.png')}} ">
     <link rel="stylesheet" href="{{asset('asset/style.css')}} ">
     <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <!-- Header -->
