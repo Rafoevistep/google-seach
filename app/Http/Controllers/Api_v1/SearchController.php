@@ -13,7 +13,7 @@ class SearchController extends Controller
     {
         $name = $request->search;
 
-        $client = new GoogleSearchResults("3d222a649b7b32500a66125389dfec3ec91814814ccc32f82c339e7709c9331c");
+        $client = new GoogleSearchResults("cc88f79b455e81ecac213bd45362e21cc7e393b6167e934ea8f441a336fa0d48");
         $query = ["q" => $name, "location" => "Armenia,Yerevan"];
         $response = $client->get_json($query);
         $result = $response->organic_results;
