@@ -16,18 +16,23 @@ function search() {
 
 //-----------------------------------------
 
+
 const handleOnChange = value => {
+    setTimeout(() => {
     if (value.length) {
         fetch(`http://google-serch.herokuapp.com/api/search?search=&search=${value}`)
             .then(response => response.json())
             .then(data => dropDown(data))
-    } else dropDown([])
+    } else
+
+            dropDown([])
+        }, 500)
 }
 
 const dropDown = (data) => {
     const dropdownUl = document.querySelector('#result-list')
     dropdownUl.innerHTML = '';
-    const createLinks = ({link, title}) => {
+        const createLinks = ({link, title}) => {
         const dropdownLi = document.createElement('li')
         dropdownLi.classList.add('fas', 'fa-search');
         const anchor = document.createElement('a')
@@ -35,9 +40,13 @@ const dropDown = (data) => {
         anchor.textContent = title;
         const dropdownLiLink = dropdownLi.appendChild(anchor)
         return dropdownLi;
+
     }
+
+
     if (data.length) {
         data.map(({link, title}, i) => {
+
             if (i >= 8) {
                 return
             } else {

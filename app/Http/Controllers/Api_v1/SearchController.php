@@ -13,19 +13,19 @@ class SearchController extends Controller
     {
         $name = $request->search;
 
-        $client = new GoogleSearchResults("309d8c8f44e424a99b1a6320b4bec5bb8d0401779d1a64137f73275eeba48128");
-        $query = ["q" => $name,"location"=>"Armenia,Yerevan"];
+        $client = new GoogleSearchResults("3d222a649b7b32500a66125389dfec3ec91814814ccc32f82c339e7709c9331c");
+        $query = ["q" => $name, "location" => "Armenia,Yerevan"];
         $response = $client->get_json($query);
-        $result =  $response->organic_results;
+        $result = $response->organic_results;
         //organic_results
         $itemDataList = [];
 
-        foreach ($result as $itemElement){
+        foreach ($result as $itemElement) {
 
-              $link=  $itemElement->link;
-              $title = $itemElement->title;
+            $link = $itemElement->link;
+            $title = $itemElement->title;
 
-            $itemDataList[] = [ 'link'=> $link, 'title'=> $title ];
+            $itemDataList[] = ['link' => $link, 'title' => $title];
 
         }
 
@@ -33,5 +33,4 @@ class SearchController extends Controller
 
     }
 
-
-    }
+}
