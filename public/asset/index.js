@@ -19,7 +19,7 @@ function search() {
 
 const handleOnChange = value => {
     if (value.length) {
-        axios.get(`http://127.0.0.1:8000/api/search?search=&search=${value}`)
+        axios.get(`http://google-serch.herokuapp.com/api/search?search=&search=${value}`)
             .then(data => dropDown(data.data))
     } else
         setTimeout(() => {
