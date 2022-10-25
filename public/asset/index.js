@@ -18,22 +18,20 @@ function search() {
 
 
 const handleOnChange = value => {
-    console.log('value ', value)
     if (value.length) {
-        axios.get(`http://google-serch.herokuapp.com/api/search?search=&search=${value}`)
-            .then(res => dropDown(res.data))
-    }
-    else
+        fetch(`http://127.0.0.1:8000/api/search?search=&search=${value}`)
+            .then(response => response.json())
+            .then(data => dropDown(data))
+    } else
         setTimeout(() => {
             dropDown([])
         }, 500)
 }
 
 const dropDown = (data) => {
-    console.log('data', data)
     const dropdownUl = document.querySelector('#result-list')
     dropdownUl.innerHTML = '';
-    const createLinks = ({link, title}) => {
+        const createLinks = ({link, title}) => {
         const dropdownLi = document.createElement('li')
         dropdownLi.classList.add('fas', 'fa-search');
         const anchor = document.createElement('a')
@@ -41,11 +39,13 @@ const dropDown = (data) => {
         anchor.textContent = title;
         const dropdownLiLink = dropdownLi.appendChild(anchor)
         return dropdownLi;
+
     }
 
 
     if (data.length) {
         data.map(({link, title}, i) => {
+
             if (i >= 8) {
                 return
             } else {
