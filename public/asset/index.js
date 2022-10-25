@@ -25,7 +25,7 @@ const handleOnChange = value => {
     } else
         setTimeout(() => {
             dropDown([])
-        }, 500)
+        }, 100)
 }
 
 const dropDown = (data) => {
