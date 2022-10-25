@@ -18,13 +18,12 @@ function search() {
 
 
 const handleOnChange = value => {
-    setTimeout(() => {
     if (value.length) {
-        fetch(`http://google-serch.herokuapp.com/api/search?search=&search=${value}`)
+        fetch(`http://127.0.0.1:8000/api/search?search=&search=${value}`)
             .then(response => response.json())
             .then(data => dropDown(data))
     } else
-
+        setTimeout(() => {
             dropDown([])
         }, 500)
 }
