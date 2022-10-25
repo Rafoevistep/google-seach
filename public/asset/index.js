@@ -19,9 +19,8 @@ function search() {
 
 const handleOnChange = value => {
     if (value.length) {
-        fetch(`http://127.0.0.1:8000/api/search?search=&search=${value}`)
-            .then(response => response.json())
-            .then(data => dropDown(data))
+        axios.get(`http://127.0.0.1:8000/api/search?search=&search=${value}`)
+            .then(data => dropDown(data.data))
     } else
         setTimeout(() => {
             dropDown([])
