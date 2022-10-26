@@ -186,6 +186,8 @@ input#search-input {
 
 .google-search-btn {
     width: 120px;
+    cursor: pointer;
+
 }
 
 .lucky-search-btn {
