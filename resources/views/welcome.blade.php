@@ -45,10 +45,9 @@
         <div class="search-bar">
             <form action="{{ route('search_name') }}" method="get" class="search-form">
                 @csrf
-                <button type="submit" name="search" class="search-btn" onclick="search()">
+                <button type="submit" name="search"  class="search-btn" onclick="search()">
                     <i class="fas fa-search"></i>
                 </button>
-                {{--                oninput="handleOnChange(this.value)"--}}
                 <input id="search-input" class="search-input" type="search" name="search"
                        oninput="handleOnChange(this.value)" autocomplete="off" required min="2">
             </form>
@@ -65,8 +64,10 @@
         </div>
         <ul id="result-list"></ul>
         <div class="search-btns">
-            <button class="google-search-btn">{{__('msg.google_search')}}</button>
-            <button class="lucky-search-btn">{{__('msg.felling')}}</button>
+            <button class="google-search-btn" onclick="search()">{{__('msg.google_search')}}</button>
+            <a href="https://www.google.com/doodles">
+                <button class="lucky-search-btn">{{__('msg.felling')}}</button>
+            </a>
         </div>
         <div class="language">
             <p>{{__('msg.service')}}

@@ -190,6 +190,7 @@ input#search-input {
 
 .lucky-search-btn {
     width: 140px;
+    cursor: pointer;
 }
 
 .language {
@@ -299,6 +300,7 @@ footer {
 
     .google-search-btn {
         width: 100px;
+        cursor: pointer;
     }
 
     .lucky-search-btn {
@@ -329,7 +331,7 @@ footer {
     }
 }
 
-ul#result-list {
+#result-list {
     margin-top: 20px;
     width: 50%;
     display: flex;
