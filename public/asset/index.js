@@ -1,7 +1,11 @@
 // Redirecting in google search input value
+const bod = document.querySelector('body')
 const searchInput = document.querySelector("#search-input");
+const dropdownUl = document.querySelector('#result-list')
+
 
 searchInput.addEventListener("keydown", function (event) {
+    dropdownUl.style.display = 'flex'
     if (event.code === "Enter") {
         event.preventDefault()
         search();
@@ -16,10 +20,9 @@ function search() {
 
 //-----------------------------------------
 
-
 const handleOnChange = value => {
     if (value.length) {
-        axios.get(`http://google-serch.herokuapp.com/api/search?search=&search=${value}`)
+        axios.get(`http://127.0.0.1:8000/api/search?search=&search=${value}`)
             .then(data => dropDown(data.data))
     } else
         setTimeout(() => {
@@ -28,9 +31,8 @@ const handleOnChange = value => {
 }
 
 const dropDown = (data) => {
-    const dropdownUl = document.querySelector('#result-list')
     dropdownUl.innerHTML = '';
-        const createLinks = ({link, title}) => {
+    const createLinks = ({link, title}) => {
         const dropdownLi = document.createElement('li')
         dropdownLi.classList.add('fas', 'fa-search');
         const anchor = document.createElement('a')
@@ -38,13 +40,10 @@ const dropDown = (data) => {
         anchor.textContent = title;
         const dropdownLiLink = dropdownLi.appendChild(anchor)
         return dropdownLi;
-
     }
-
 
     if (data.length) {
         data.map(({link, title}, i) => {
-
             if (i >= 8) {
                 return
             } else {
@@ -53,3 +52,7 @@ const dropDown = (data) => {
         })
     }
 }
+
+bod.addEventListener('mousedown', function (event) {
+    searchInput.value && (dropdownUl.style.display = 'none');
+});
