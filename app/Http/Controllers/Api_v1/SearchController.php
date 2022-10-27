@@ -3,34 +3,55 @@
 namespace App\Http\Controllers\Api_v1;
 
 use App\Http\Controllers\Controller;
-use GoogleSearchResults;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 
 class SearchController extends Controller
 {
-    public function search_google(Request $request): \Illuminate\Http\JsonResponse
+    public function search_google(Request $request): JsonResponse
     {
-        $name = $request->search;
+        $search = $request->search;
 
-        $client = new GoogleSearchResults("dc86fb9fef9e738dbed8c4a26b25f4a6101f9940b4f61698954b12ac16cbb5d7");
-        $query = ["q" => $name, "location" => "Armenia,Yerevan"];
-        $response = $client->get_json($query);
-        $result = $response->organic_results;
-        //organic_results
+        $body = [
+            'q' => $search,
+            'gl' => 'am',
+            'hl' => 'hy',
+            'autocorrect' => true
+        ];
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://google.serper.dev/search',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => json_encode($body),
+            CURLOPT_HTTPHEADER => array(
+                'X-API-KEY:' .env("SERPER_API_KEY"),
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        $data = json_decode($response, true);
+        $data = $data['organic'];
         $itemDataList = [];
 
-        foreach ($result as $itemElement) {
-
-            $link = $itemElement->link;
-            $title = $itemElement->title;
-
+        for ($k = 0; $k < count($data); $k++) {
+            $title = $data[$k]['title'];
+            $link = $data[$k]['link'];
             $itemDataList[] = ['link' => $link, 'title' => $title];
-
         }
 
         return response()->json($itemDataList);
 
     }
-
 }

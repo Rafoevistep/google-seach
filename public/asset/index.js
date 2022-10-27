@@ -53,6 +53,6 @@ const dropDown = (data) => {
     }
 }
 
-bod.addEventListener('mousedown', function (event) {
+bod.addEventListener('mouseup', function (event) {
     searchInput.value && (dropdownUl.style.display = 'none');
 });
